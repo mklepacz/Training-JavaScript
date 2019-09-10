@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="Author" content="Mateusz Klepacz, mateusz.klepacz@outlook.com">
+        <title>Go To Cinema</title>
+        <script>
+            /*CODEWARS: John wants to know how many times he must go to the cinema so that the final result of System B, when rounded up to the next dollar, will be cheaper than System A.
+            System A : 15 * 3 = 45
+            System B : 500 + 15 * 0.90 + (15 * 0.90) * 0.90 + (15 * 0.90 * 0.90) * 0.90 ( = 536.5849999999999, no rounding for each ticket)
+            More examples:
+                movie(500, 15, 0.9) should return 43 
+                    (with card the total price is 634, with tickets 645)
+                movie(100, 10, 0.95) should return 24 
+                    (with card the total price is 235, with tickets 240)*/
+            
+            const movie = (card, ticket, perc) => {
+                let counter = 1;
+                let system_A = ticket;
+                let system_B = card + (ticket * perc);
+                if (system_A > Math.ceil(system_B)){
+                    return counter;
+                }else{
+                    counter ++;
+                    while (system_A < system_B){
+                    system_A = ticket * counter;
+                    system_B += (ticket * Math.pow(perc, counter));
+                    if (system_A <= Math.ceil(system_B)){
+                        counter ++;
+                    }
+                    }
+                    return counter;
+                }
+            };
+            console.log(movie(500, 15, 0.9));
+            console.log(movie(100, 10, 0.95));
+        </script>
+    </head>
+<body></body>
+</html>
+
+
