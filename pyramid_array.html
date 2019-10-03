@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="Author" content="Mateusz Klepacz, mateusz.klepacz@outlook.com">
+        <title>Pyramid Array</title>
+        <script>/*CODEWARS: Write a function that when given a number >= 0, returns an Array of ascending length subarrays.
+
+            pyramid(0) => [ ]
+            pyramid(1) => [  [1]  ]
+            pyramid(2) => [  [1],  [1, 1]  ]
+            pyramid(3) => [  [1],  [1, 1],  [1, 1, 1]  ]
+            
+            Note: the subarrays should be filled with 1s
+            */
+
+        const pyramid = (n) => {
+            let array = new Array(n);
+            if (n != 0){
+                let j = 0;
+                for (let i = 1; i <= n; i++){
+                    array[j] = new Array(i).fill(1);
+                    j++;
+                }
+            }
+            return array;
+        }
+        console.log(pyramid(3));
+        </script>
+    </head>
+<body></body>
+</html>
+
+
