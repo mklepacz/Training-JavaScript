@@ -1,2 +1,2 @@
-# js_exercises
+# Training-JavaScript
 Repo with JavaScript exercises
